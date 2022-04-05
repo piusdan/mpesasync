@@ -1,8 +1,8 @@
 import pytest
 import pytest_asyncio
 
-from mpesalib import MpesaEnvironment, MpesaResponse
-from mpesalib.lipa_na_mpesa import LipaNaMpesaOnline, InitiateSTKPushResponse, QueryLipaNaMpesaOnlineResponse
+from mpesasync import MpesaEnvironment, MpesaResponse
+from mpesasync.lipa_na_mpesa import LipaNaMpesaOnline, InitiateSTKPushResponse, QueryLipaNaMpesaOnlineResponse
 
 
 @pytest_asyncio.fixture

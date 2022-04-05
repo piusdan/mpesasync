@@ -1,8 +1,8 @@
 import pytest
 import pytest_asyncio
 
-from mpesalib.mpesa_business.mpesa_business import *
-from mpesalib.types import CommandId
+from mpesasync.mpesa_business.mpesa_business import *
+from mpesasync.types import CommandId
 
 
 @pytest_asyncio.fixture

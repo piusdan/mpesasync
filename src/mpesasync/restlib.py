@@ -5,7 +5,7 @@ import httpx
 import ujson
 from pydantic import BaseModel
 
-from mpesalib.contracts import MpesaError, MpesaResponse
+from mpesasync.contracts import MpesaError, MpesaResponse
 
 
 class HttpMethod(enum.Enum):

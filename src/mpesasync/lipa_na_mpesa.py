@@ -3,8 +3,8 @@ import datetime
 
 from pydantic import BaseModel
 
-from mpesalib import Mpesa, MpesaResponse
-from mpesalib.restlib import HttpClient
+from mpesasync import Mpesa, MpesaResponse
+from mpesasync.restlib import HttpClient
 
 
 class InitiateSTKPushResponse(BaseModel):

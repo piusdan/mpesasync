@@ -1,2 +1,2 @@
-from mpesalib.mpesa_business.mpesa_business import *
-from mpesalib.mpesa_business.transactions import *
+from mpesasync.mpesa_business.mpesa_business import *
+from mpesasync.mpesa_business.transactions import *

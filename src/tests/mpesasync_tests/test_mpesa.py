@@ -1,9 +1,9 @@
 import pytest
 import pytest_asyncio
 
-from mpesalib import *
-from mpesalib import MpesaResponse
-from mpesalib.mpesa_business import MpesaTransaction, TransactionStatus
+from mpesasync import *
+from mpesasync import MpesaResponse
+from mpesasync.mpesa_business import MpesaTransaction, TransactionStatus
 
 
 @pytest_asyncio.fixture

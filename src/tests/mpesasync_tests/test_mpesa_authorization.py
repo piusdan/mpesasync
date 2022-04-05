@@ -2,7 +2,7 @@ import pytest
 
 pytest_plugins = ('pytest_asyncio',)
 
-from mpesalib import MpesaEnvironment, Mpesa
+from mpesasync import MpesaEnvironment, Mpesa
 
 
 @pytest.fixture

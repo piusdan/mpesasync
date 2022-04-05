@@ -1,8 +1,8 @@
 from typing import Optional
 
-from mpesalib import Mpesa, MpesaEnvironment
-from mpesalib.restlib import *
-from mpesalib.types import CommandId
+from mpesasync import Mpesa, MpesaEnvironment
+from mpesasync.restlib import *
+from mpesasync.types import CommandId
 
 
 class SimulateCustomerToBizPaymentResponse(BaseModel):

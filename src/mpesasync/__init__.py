@@ -2,7 +2,7 @@
 from asyncio.proactor_events import _ProactorBasePipeTransport
 from functools import wraps
 
-from mpesalib.contracts import MpesaResponse
+from mpesasync.contracts import MpesaResponse
 
 
 def silence_event_loop_closed(func):
@@ -30,8 +30,8 @@ import os
 from cryptography import x509
 from cryptography.hazmat.primitives.asymmetric import padding
 
-from mpesalib.types import *
-from mpesalib.restlib import *
+from mpesasync.types import *
+from mpesasync.restlib import *
 
 
 # region Types
@@ -74,7 +74,7 @@ class Mpesa(BaseModel):
         """
         Gives you a time bound access token to call allowed APIs.
         """
-        from mpesalib.restlib import HttpClient
+        from mpesasync.restlib import HttpClient
         params = [("grant_type", "client_credentials")]
         resp = await HttpClient.HttpGet(
             url="%s/oauth/v1/generate?grant_type=client_credentials" % self.base_url,

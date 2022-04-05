@@ -1,6 +1,6 @@
-from mpesalib import *
-from mpesalib.restlib import *
-from mpesalib.types import IdentifierType, CommandId
+from mpesasync import *
+from mpesasync.restlib import *
+from mpesasync.types import IdentifierType, CommandId
 
 
 class TransactionStatus(BaseModel):
