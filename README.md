@@ -55,7 +55,7 @@ await mpesa_app.authorize(consumer_key="YOUR CONSUMER KEY",
 ```
 2. Send an STKPush prompt
 ```python
-mpesa_app.stk_push(
+await mpesa_app.stk_push(
         amount=1.0, phone_number="phone number"
     )
 ```
