@@ -24,7 +24,7 @@ class QueryLipaNaMpesaOnlineResponse(BaseModel):
     ResultDesc: str
 
 
-class LipaNaMpesaOnline(Mpesa):
+class STKPush(Mpesa):
     BusinessShortCode: int
     CallBackURL: str
     PassKey: str

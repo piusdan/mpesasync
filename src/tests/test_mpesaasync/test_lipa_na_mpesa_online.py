@@ -2,12 +2,12 @@ import pytest
 import pytest_asyncio
 
 from mpesasync import MpesaEnvironment, MpesaResponse
-from mpesasync.lipa_na_mpesa import LipaNaMpesaOnline, InitiateSTKPushResponse, QueryLipaNaMpesaOnlineResponse
+from mpesasync.lipa_na_mpesa import STKPush, InitiateSTKPushResponse, QueryLipaNaMpesaOnlineResponse
 
 
 @pytest_asyncio.fixture
-async def mpesa_express() -> LipaNaMpesaOnline:
-    mpesa_app = LipaNaMpesaOnline(
+async def mpesa_express() -> STKPush:
+    mpesa_app = STKPush(
         Environment=MpesaEnvironment.sandbox,
         BusinessShortCode=174379,
         CallBackURL="https://mydomain.com/path",
@@ -19,7 +19,7 @@ async def mpesa_express() -> LipaNaMpesaOnline:
 
 
 @pytest.mark.asyncio
-async def test_can_send_stk_push(mpesa_express: LipaNaMpesaOnline):
+async def test_can_send_stk_push(mpesa_express: STKPush):
     resp = await mpesa_express.stk_push(
         amount=1.0, phone_number="254708374149"
     )
@@ -29,7 +29,7 @@ async def test_can_send_stk_push(mpesa_express: LipaNaMpesaOnline):
 
 
 @pytest.mark.asyncio
-async def test_can_verfiy_transaction(mpesa_express: LipaNaMpesaOnline):
+async def test_can_verfiy_transaction(mpesa_express: STKPush):
     transaction = await mpesa_express.stk_push(
         amount=1.0, phone_number="254708374149"
     )
