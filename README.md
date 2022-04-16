@@ -26,6 +26,7 @@ To get started you need the following from the [Mpesa Daraja Portal](https://dev
 3. The business shortcode.
 
 [B2C/B2B]
+
 5. Your organisation shortcode
 6. Initiator name 
 7. Security credential
