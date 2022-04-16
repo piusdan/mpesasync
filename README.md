@@ -87,3 +87,27 @@ Start the server
 
 `$ uvicorn main:app --reload`
 
+## Business to Customer Payments
+Use this SDK to disburse money to your customers
+
+```python
+from mpesasync.mpesa_business.mpesa_business import *
+from mpesasync.types import CommandId
+
+mpesa_app = MpesaBusiness(InitiatorName="testapi",
+                              SecurityCredential=MpesaBusiness.get_security_credential(
+                                  initiator_password="YOUR INITIATOR",
+                                  mpesa_environment=MpesaEnvironment.production
+                            ),
+                              OrganizationShortcode="",
+                              QueueTimeOutURL="https://mydomain.com/b2c/queue",
+                              ResultUrl="https://mydomain.com/b2c/result",
+                              Environment=MpesaEnvironment.production)
+
+await mpesa_app.authorize(consumer_key="CONSUMER KEY", consumer_secret="CONSUMER SECRET")
+
+await mpesa_app.business_to_customer(phoneNumber="Phone number",
+                                                    amount=100,
+                                                    commandId=CommandId.BusinessPayment
+                                                    )
+```
