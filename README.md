@@ -2,22 +2,21 @@
 
 A asynchronous python library to the Mpesa Daraja API.
 
-----
-## Features
+
+# Features
 This includes the following:
 1. A python library to accept send and receive MPESA payments in less than 10 lines of code.
 2. A sample implementation of the library in fast api.
 # Installation
 `$ pip install mpesasync`
-## Development
+# Development
 * Create a virtual environment `python -m venv venv`
 * Activate your virtual environment `$source venv\bin\activate` or in windows `> venv\scripts\activate`
 * Install Poetry `pip install poetry`
 * Install project `poetry install`
 * Run tests `pytest`
 
-Getting started
----
+# Getting started
 
 To get started you need the following from the [Mpesa Daraja Portal](https://developer.safaricom.co.ke/)
 
