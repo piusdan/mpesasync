@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "mpesasync"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "A Mpesa Daraja API library to quickly get started sending and receiving money from mpesa "
 authors = ["Pius Dan <npiusdan@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/Piusdan/mpesasync"
+maintainers = ["Pius Dan(darklotus) <npiusdan@gmail.com>"]
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -13,6 +17,8 @@ packages = [
 ]
 exclude = ["*tests*"]
 
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/Piusdan/mpesasync/issues"
 
 [tool.poetry.dependencies]
 python = "^3.9"
