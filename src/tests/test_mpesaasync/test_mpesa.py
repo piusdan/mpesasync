@@ -11,7 +11,7 @@ async def mpesa_app() -> Mpesa:
     mpesa_app = Mpesa(
         Environment=MpesaEnvironment.sandbox
     )
-    await mpesa_app.authorize(consumer_key="Azs2KejU1ARvIL5JdJsARbV2gDrWmpOB", consumer_secret="hipGvFJbOxri330c")
+    await mpesa_app.authorize(consumer_key=os.environ["CONSUMER_KEY"], consumer_secret=os.environ["CONSUMER_SECRET"])
     return mpesa_app
 
 
@@ -20,13 +20,13 @@ async def transaction() -> MpesaTransaction:
     mpesa_app = MpesaTransaction(InitiatorName="testapi",
                                  SecurityCredential=MpesaTransaction.get_security_credential(
                                      MpesaEnvironment.sandbox,
-                                     "Safaricom990!"),
-                                 OrganizationShortcode="600990",
+                                     os.environ["INITIATOR_NAME"]),
+                                 OrganizationShortcode=os.environ["ORGANIZATION_SHORTCODE"],
                                  QueueTimeOutURL="https://mydomain.com/TransactionStatus/result/",
                                  ResultURL="https://mydomain.com/TransactionStatus/queue/",
                                  Environment=MpesaEnvironment.sandbox)
 
-    await mpesa_app.authorize(consumer_key="Azs2KejU1ARvIL5JdJsARbV2gDrWmpOB", consumer_secret="hipGvFJbOxri330c")
+    await mpesa_app.authorize(consumer_key=os.environ["CONSUMER_KEY"], consumer_secret=os.environ["CONSUMER_SECRET"])
 
     return mpesa_app
 

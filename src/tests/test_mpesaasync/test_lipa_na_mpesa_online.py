@@ -1,3 +1,5 @@
+import os
+
 import pytest
 import pytest_asyncio
 
@@ -9,9 +11,9 @@ from mpesasync.lipa_na_mpesa import STKPush, InitiateSTKPushResponse, QueryLipaN
 async def mpesa_express() -> STKPush:
     mpesa_app = STKPush(
         Environment=MpesaEnvironment.sandbox,
-        BusinessShortCode=174379,
+        BusinessShortCode=os.environ["BUSSINESS_SHORTCODE"],
         CallBackURL="https://mydomain.com/path",
-        PassKey="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
+        PassKey=os.environ["PASSKEY"]
     )
     await mpesa_app.authorize(consumer_key="Azs2KejU1ARvIL5JdJsARbV2gDrWmpOB",
                               consumer_secret="hipGvFJbOxri330c")
