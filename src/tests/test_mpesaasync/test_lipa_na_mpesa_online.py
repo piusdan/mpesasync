@@ -21,19 +21,8 @@ async def mpesa_express() -> STKPush:
 @pytest.mark.asyncio
 async def test_can_send_stk_push(mpesa_express: STKPush):
     resp = await mpesa_express.stk_push(
-        amount=1.0, phone_number="254708374149"
+        amount=1.0, phone_number="254703554404"
     )
     assert isinstance(resp, MpesaResponse)
     assert resp.data is not None
     assert isinstance(resp.data, InitiateSTKPushResponse)
-
-
-@pytest.mark.asyncio
-async def test_can_verfiy_transaction(mpesa_express: STKPush):
-    transaction = await mpesa_express.stk_push(
-        amount=1.0, phone_number="254708374149"
-    )
-    resp = await mpesa_express.verify(transaction.data.CheckoutRequestID)
-    assert isinstance(resp, MpesaResponse)
-    assert resp.data is not None
-    assert isinstance(resp.data, QueryLipaNaMpesaOnlineResponse)
