@@ -1,7 +1,7 @@
 # Mpesasync
 
 A asynchronous python library to the Mpesa Daraja API.
-
+[Latest Release](https://pypi.org/project/mpesasync/)
 
 # Features
 This includes the following:
