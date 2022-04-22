@@ -5,9 +5,7 @@ name: Publish MpesaAsync
 on:
   push:
     branches: 
-      - "*"
-  pull_request:
-    branches: [ main ]
+      - main
 
 permissions:
   contents: read
