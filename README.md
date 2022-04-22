@@ -1,5 +1,7 @@
 # Mpesasync
 
+[![Publish MpesaAsync](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml/badge.svg?event=push)](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml)
+
 A asynchronous python library to the Mpesa Daraja API.
 [Latest Release](https://pypi.org/project/mpesasync/)
 
@@ -76,7 +78,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("stkpush/callback")
+@app.post("stkpush/callback")
 def stk_push_callback(data: STKPushResult):
     ## do your zing
     print(data)
