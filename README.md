@@ -76,7 +76,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("stkpush/callback")
+@app.post("stkpush/callback")
 def stk_push_callback(data: STKPushResult):
     ## do your zing
     print(data)
