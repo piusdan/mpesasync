@@ -1,6 +1,6 @@
 # Mpesasync
 
-[![Publish MpesaAsync](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml/badge.svg?event=push)](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml)
+[![Publish MpesaAsync](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml/badge.svg)](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml)
 
 A asynchronous python library to the Mpesa Daraja API.
 [Latest Release](https://pypi.org/project/mpesasync/)
