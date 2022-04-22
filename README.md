@@ -1,7 +1,6 @@
 # Mpesasync
 
 [![Publish MpesaAsync](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml/badge.svg)](https://github.com/Piusdan/mpesasync/actions/workflows/python-app.yml)
-
 A asynchronous python library to the Mpesa Daraja API.
 [Latest Release](https://pypi.org/project/mpesasync/)
 
@@ -46,20 +45,29 @@ On the sandbox portal, create an new app and use the provided credentials.
 ```python
 from mpesasync import Mpesa, MpesaEnvironment
 from mpesasync.lipa_na_mpesa import STKPush
+import asyncio
 mpesa_app = STKPush(
         Environment=MpesaEnvironment.production, # use sandbox to authenticate with sandbox credentials
         BusinessShortCode=1234, 
         CallBackURL="https://mydomain.com/path",
         PassKey="" # use the passkey obtained from the daraja portal
     )
-await mpesa_app.authorize(consumer_key="YOUR CONSUMER KEY",
+coro =  mpesa_app.authorize(consumer_key="YOUR CONSUMER KEY",
                               consumer_secret="YOUR CONSUMER SECRET")
+loop = asyncio.get_event_loop()
+
+print(loop.run_until_complete(coro))
+
 ```
 2. Send an STKPush prompt
 ```python
-await mpesa_app.stk_push(
+coro =  mpesa_app.stk_push(
         amount=1.0, phone_number="phone number"
     )
+
+loop = asyncio.get_event_loop()
+
+print(loop.run_until_complete(coro))
 ```
 
 _The phone number can be any of +254XXXXXXXXX, 254XXXXXXXXX, 0XXXXXXXXX, the SDK will sanitise the phone numbers for you._
@@ -95,6 +103,7 @@ Use this SDK to disburse money to your customers
 ```python
 from mpesasync.mpesa_business.mpesa_business import *
 from mpesasync.types import CommandId
+import asyncio
 
 mpesa_app = MpesaBusiness(InitiatorName="testapi",
                               SecurityCredential=MpesaBusiness.get_security_credential(
@@ -106,10 +115,16 @@ mpesa_app = MpesaBusiness(InitiatorName="testapi",
                               ResultUrl="https://mydomain.com/b2c/result",
                               Environment=MpesaEnvironment.production)
 
-await mpesa_app.authorize(consumer_key="CONSUMER KEY", consumer_secret="CONSUMER SECRET")
+loop = asyncio.get_event_loop()
+auth_task =  mpesa_app.authorize(consumer_key="CONSUMER KEY", consumer_secret="CONSUMER SECRET")
 
-await mpesa_app.business_to_customer(phoneNumber="Phone number",
+loop.run_until_complete(auth_task)
+
+coro =  mpesa_app.business_to_customer(phoneNumber="Phone number",
                                                     amount=100,
                                                     commandId=CommandId.BusinessPayment
                                                     )
+
+results = loop.run_until_complete(coro)
+print(results)
 ```
