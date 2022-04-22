@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mpesasync"
-version = "0.1.1"
+version = "0.1.4"
 description = "A Mpesa Daraja API library to quickly get started sending and receiving money from mpesa "
 authors = ["Pius Dan <npiusdan@gmail.com>"]
 readme = "README.md"
