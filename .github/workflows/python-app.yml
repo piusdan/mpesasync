@@ -8,8 +8,7 @@ on:
       - "*"
   pull_request:
     branches: [ main ]
-env:
-  PYPI_TOKEN: ${{ secrets.MPESASYNC_PYPI_API_TOKEN }}
+
 permissions:
   contents: read
 
@@ -36,6 +35,8 @@ jobs:
         source venv/bin/activate
         poetry build
     - name: publish
+      env:
+        PYPI_TOKEN: ${{ secrets.MPESASYNC_PYPI_API_TOKEN }}
       run: |
         source venv/bin/activate
         poetry config pypi-token.pypi $PYPI_TOKEN
